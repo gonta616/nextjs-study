@@ -1,7 +1,9 @@
-import { Container } from '@material-ui/core';
+import React from 'react'
+import { Container } from '@material-ui/core'
 import Header from './header'
+import PropTypes from 'prop-types';
 
-export default ({children}) => {
+const Layout = ({ children }) => {
   return (
     <>
       <Header></Header>
@@ -11,3 +13,9 @@ export default ({children}) => {
     </>
   )
 }
+
+Layout.propTypes = {
+  children: PropTypes.object
+}
+
+export default Layout
