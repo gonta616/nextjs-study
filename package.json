@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "next start",
     "lint": "node_modules/eslint/bin/eslint.js '**/*.js' --ignore-pattern node_modules/",
     "lint-fix": "node_modules/eslint/bin/eslint.js \"**/*.js\" --ignore-pattern node_modules/ --fix"
   },
