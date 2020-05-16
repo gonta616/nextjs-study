@@ -19,7 +19,7 @@ app.prepare().then(() => {
     cookie: { maxAge: 60000 }
   }))
 
-  server.use('/demo', demoRouter)
+  server.use('/api/demo', demoRouter)
   server.all('*', (req, res) => {
     return handle(req, res)
   })
