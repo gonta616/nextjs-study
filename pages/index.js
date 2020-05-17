@@ -1,11 +1,9 @@
 import React from 'react'
 import Layout from '../components/layout'
-import axios from 'axios'
 
-const Home = ({ data }) => {
+const Home = () => {
   return (
     <Layout>
-      <p>{data}</p>
       <p>Hello Next.js</p>
     </Layout>
   )
