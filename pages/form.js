@@ -15,9 +15,9 @@ const Form = () => {
   const [title, setTitle] = useState('')
   const [radio, setRadio] = useState('male')
   const [check, setCheck] = useState(true)
-  // const [date, setDate] = useState(Date.now())
-  // const [select, setSelect] = useState(0)
-  // const [aSwitch, setSwitch] = useState(0)
+  const [date, setDate] = useState(Date.now())
+  const [select, setSelect] = useState(0)
+  const [aSwitch, setSwitch] = useState(0)
 
   const [banner, setBanner] = useState('')
 
