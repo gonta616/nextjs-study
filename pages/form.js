@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import Layout from '../components/layout'
-import { 
+import {
   FormControl,
   TextField,
   RadioGroup,
   FormLabel,
   FormControlLabel,
   Radio,
-  Checkbox,
+  Checkbox
 } from '@material-ui/core'
 import axios from 'axios'
 
@@ -29,12 +29,12 @@ const Form = () => {
 
   const handleChange = (e) => {
     const fn = {
-      title: {fn: setTitle, value: e.target.value},
-      radio: {fn: setRadio, value: e.target.value},
-      check: {fn: setCheck, value: e.target.checked},
-      date:  {fn: setDate, value: e.target.checked},
-      select: {fn: setSelect, value: e.target.value},
-      aSwitch: {fn: setSwitch, value: e.target.value}
+      title: { fn: setTitle, value: e.target.value },
+      radio: { fn: setRadio, value: e.target.value },
+      check: { fn: setCheck, value: e.target.checked },
+      date: { fn: setDate, value: e.target.checked },
+      select: { fn: setSelect, value: e.target.value },
+      aSwitch: { fn: setSwitch, value: e.target.value }
     }
 
     e.preventDefault()
