@@ -2,7 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const next = require('next')
+const mongoose = require('mongoose')
 const demoRouter = require('./api/routes/demo')
+const entryRouter = require('./api/routes/entry')
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -19,7 +21,14 @@ app.prepare().then(() => {
     cookie: { maxAge: 60000 }
   }))
 
+  // MongoDB
+  // mongoose.Promise = Promise
+  mongoose.connect('mongodb://localhost:27017/nextjstest', { useNewUrlParser: true, useCreateIndex: true })
+  const db = mongoose.connection
+  db.on('error', console.error.bind(console, 'connection error:'))
+
   server.use('/api/demo', demoRouter)
+  server.use('/api/entry', entryRouter)
   server.all('*', (req, res) => {
     return handle(req, res)
   })
