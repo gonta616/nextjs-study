@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const demoRouter = require('./api/routes/demo')
 const entryRouter = require('./api/routes/entry')
 const userRouter = require('./api/routes/user')
+const tagRouter = require('./api/routes/tag')
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -31,6 +32,7 @@ app.prepare().then(() => {
   server.use('/api/demo', demoRouter)
   server.use('/api/entry', entryRouter)
   server.use('/api/user', userRouter)
+  server.use('/api/tag', tagRouter)
 
   server.all('*', (req, res) => {
     return handle(req, res)
