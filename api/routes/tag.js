@@ -4,7 +4,7 @@ const TagModel = require('../../models/tag')
 
 router.get('/', async (req, res, next) => {
   try {
-    const query = TagModel.find().populate('_entries')
+    const query = TagModel.find().populate('entries')
     const entries = await query.exec()
     res.json(entries)
   } catch (ex) {

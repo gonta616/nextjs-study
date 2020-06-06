@@ -14,9 +14,19 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/fullText/:entryid', async (req, res, next) => {
+  try {
+    const id = req.params.entryid
+    const entry = await EntryModel.findById(id).exec()
+    res.json(entry.fullText())
+  } catch (ex) {
+
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
-    const entry = new EntryModel()
+    let entry = new EntryModel()
     entry.title = req.body.title
     entry.description = req.body.description
     // ユーザー One-To-Manyを実現
@@ -29,8 +39,12 @@ router.post('/', async (req, res, next) => {
     if (tag) {
       entry._tags.push(tag)
     }
-    const result = await entry.save()
-    res.json(result)
+    entry = await entry.save()
+    if (tag) {
+      tag._entries.push(entry)
+      await tag.save()
+    }
+    res.json(entry)
   } catch (ex) {
     res.json(ex.message)
   }

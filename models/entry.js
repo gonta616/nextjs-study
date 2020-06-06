@@ -12,5 +12,8 @@ const entrySchema = new Schema({
     }
   ]
 })
+entrySchema.methods.fullText = () => {
+  return `title: ${this.title} desc: ${this.description}`
+}
 
 module.exports = mongoose.model('Entry', entrySchema)

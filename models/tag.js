@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const tagSchema = new Schema({
   name: { type: String, required: true },
-  entries: [
+  _entries: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Entry'
